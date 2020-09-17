@@ -1,12 +1,12 @@
-#Use Python Image
-
-# Install apt dependencies
  
-# Copy contents into image
- 
-# run pip dependencies
- 
-# Expose correct port
+FROM python:3.7
 
-# Create an entrypoint
+WORKDIR /app
 
+COPY . .
+
+RUN pip install Flask Flask-SQLAlchemy PyMySQL 
+
+EXPOSE 5000
+
+ENTRYPOINT ["/usr/local/bin/python3","app.py"]
